@@ -4,7 +4,7 @@
     {
       "src": "views.py",
       "use": "@vercel/python",
-      "config": { "pythonVersion": "3.8" }  // Specify a supported Python version here
+      "config": { "pythonVersion": "3.8" }
     }
   ],
   "routes": [
