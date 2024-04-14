@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ICG Generator</title>
+    <link rel="stylesheet" href="/static/styles.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+
+<body>
+    
+    <div class="container">
+        <h1>Intermediate Code Generator</h1>
+        <form id="expressionForm">
+            <input type="text" name="expression" placeholder="Enter infix expression" required>
+            <select name="output_type">
+                <option value="T_A_C">T_A_C</option>
+                <option value="triples">Triples</option>
+                <option value="quadruples">Quadruples</option>
+                <option value="indirect_triples">Indirect Triples</option>
+            </select>
+            <button type="submit">Generate</button>
+        </form>
+        <div id="result" class="result hidden"></div>
+    </div>
+    <script>
+        document.getElementById('expressionForm').onsubmit = function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            fetch('/process', {
+                method: 'POST',
+                body: formData,
+            }).then(response => response.json())
+              .then(data => {
+                if (data.success) {
+                    const resultElement = document.getElementById('result');
+                    resultElement.textContent = data.output;
+                    resultElement.classList.remove('hidden');
+                } else {
+                    Swal.fire('Error!', data.message, 'error');
+                }
+            });
+        };
+    </script>    
+</body>
+</html>
