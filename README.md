@@ -20,13 +20,13 @@ This project is a Flask web application developed as part of our Compiler Design
 1. Clone the repository:
 
     ```
-    git clone https://github.com/your_username/compiler-design-project.git
+    git clone https://github.com/Fawaz-Khan-R/Intermediate-Code-Generator.git
     ```
 
 2. Navigate to the project directory:
 
     ```
-    cd compiler-design-project
+    cd Intermediate-Code-Generator
     ```
 
 3. Install dependencies:
@@ -38,7 +38,7 @@ This project is a Flask web application developed as part of our Compiler Design
 4. Run the Flask application:
 
     ```
-    python app.py
+    python views.py
     ```
 
 5. Access the application through a web browser at `http://localhost:5000`.
@@ -71,6 +71,7 @@ This project is a Flask web application developed as part of our Compiler Design
 ## Contributors
 
 - [Fawaz Khan R](https://github.com/Fawaz-Khan-R)
+- [Dibyansu Singh](https://github.com/dibyansu06)
 
 ## License
 
