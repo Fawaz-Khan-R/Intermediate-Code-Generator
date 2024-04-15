@@ -73,6 +73,3 @@ This project is a Flask web application developed as part of our Compiler Design
 - [Fawaz Khan R](https://github.com/Fawaz-Khan-R)
 - [Dibyansu Singh](https://github.com/dibyansu06)
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
