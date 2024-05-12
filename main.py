@@ -159,7 +159,7 @@ def generate_indirect_triples(postfix):
 
     return "\n".join(triples_results) + "\n\nPointers Table:\n" + "\n".join(pointers_results)
 
-# views.py
+# Flask code starts here => views.py
 
 from flask import Flask, render_template, request, jsonify
 
