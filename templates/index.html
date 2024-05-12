@@ -25,22 +25,31 @@
     </div>
     <script>
         document.getElementById('expressionForm').onsubmit = function(e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            fetch('/process', {
-                method: 'POST',
-                body: formData,
-            }).then(response => response.json())
-              .then(data => {
-                if (data.success) {
-                    const resultElement = document.getElementById('result');
-                    resultElement.textContent = data.output;
-                    resultElement.classList.remove('hidden');
-                } else {
-                    Swal.fire('Error!', data.message, 'error');
-                }
-            });
-        };
+    e.preventDefault();
+    const formData = new FormData(this);
+    fetch('/process', {
+        method: 'POST',
+        body: formData,
+    }).then(response => response.json())
+      .then(data => {
+        if (data.success) {
+            const resultElement = document.getElementById('result');
+            resultElement.innerHTML = ''; // Clear previous results
+            if (data.pointers) {
+                // Handling indirect triples which includes two parts: triples and pointers
+                resultElement.innerHTML += `<h3>Indirect Triples:</h3><pre>${data.output}</pre>`;
+                resultElement.innerHTML += `<h3>Pointers Table:</h3><pre>${data.pointers}</pre>`;
+            } else {
+                // For other types of output
+                resultElement.innerHTML = `<pre>${data.output}</pre>`;
+            }
+            resultElement.classList.remove('hidden');
+        } else {
+            Swal.fire('Error!', data.message, 'error');
+        }
+    });
+};
+
     </script>    
 </body>
 </html>
